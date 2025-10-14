@@ -1,0 +1,63 @@
+
+#Start Zookeeper, running in port 2182
+./zookeeper-server-start ../etc/kafka/zookeeper.properties
+./zookeeper-shell localhost:<port>
+	ls /brokers/ids
+
+#Start Kakfa Server
+./kafka-server-start ../etc/kafka/server-0.properties
+./kafka-server-start ../etc/kafka/server-1.properties
+./kafka-server-start ../etc/kafka/server-2.properties
+
+---------------------------------------------------------------------------------------------------------
+
+#Create and Describe
+./kafka-topics.sh --create --bootstrap-server localhost:<port> --topic <TopicName> --partitions <Number> --replication-factor <Number>
+./kafka-topics.sh --create --bootstrap-server localhost:<port>, localhost:<port> {1...N} --topic <TopicName> --partitions <Number> --replication-factor <Number>
+
+./kafka-topics --describe --topic <TopicName> --bootstrap-server <host>:<port> <host>:<port> <host>:<port>
+
+---------------------------------------------------------------------------------------------------------
+
+#Producer and Consumer
+./kafka-console-producer --topic <topicName> --broker-list localhost:<KakfaServerNumber>
+
+---------------------------------------------------------------------------------------------------------
+#List Kafka Topics
+
+./kafka-topics --bootstrap-server localhost:6091, localhost:6092, localhost:6093 --list
+---------------------------------------------------------------------------------------------------------
+##Read the Consumer
+./kafka-console-consumer --topic <topicName> --broker-list localhost:<KakfaServerNumber>
+./kafka-console-consumer --topic <topicName> --broker-list localhost:<KakfaServerNumber> --from-beginning
+./kafka-console-consumer --topic <topicName> --broker-list localhost:<KakfaServerNumber> --from-beginning --group <GroupName>
+
+#Read based on the Partition
+./kafka-console-consumer --bootstrap-server localhost:6091 --partition 1 --topic invoices --from-beginning
+./kafka-console-consumer --bootstrap-server localhost:6091 --partition 1 --topic invoices --offset 1
+
+#Consumer Groups
+./kafka-consumer-groups --bootstrap-server <host>:<port> --list
+./kafka-consumer-groups --bootstrap-server <host>:<port> --group <groupName> --describe
+
+
+./kafka-console-consumer --bootstrap-server localhost:6091 --topic <topicName> --group <groupName> --from-beginning
+
+---------------------------------------------------------------------------------------------------------
+
+#Kafka Dumps log
+./kafka-dump-log --files ../logs/kafka-broker-id-0/<topicName>/<logName>.log
+
+---------------------------------------------------------------------------------------------------------
+
+#Controller
+./zookeeper-shell localhost:<port> get /controller
+
+---------------------------------------------------------------------------------------------------------
+
+#Kraft
+./kafka-storage random-uuid
+./kafka-storage format -t <random-uuid> -c ../etc/kafka/kraft/server.properties
+./kafka-server-start  ../etc/kafka/kraft/server.properties
+
+---------------------------------------------------------------------------------------------------------
