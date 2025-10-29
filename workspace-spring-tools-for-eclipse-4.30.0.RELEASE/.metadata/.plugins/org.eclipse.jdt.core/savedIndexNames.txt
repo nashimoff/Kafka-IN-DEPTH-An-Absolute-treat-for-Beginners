@@ -1,0 +1,10 @@
+INDEX VERSION 1.134+E:\COURSES\Kafka IN DEPTH An Absolute treat for Beginners\workspace-spring-tools-for-eclipse-4.30.0.RELEASE\.metadata\.plugins\org.eclipse.jdt.core
+4180830911.index
+3040604096.index
+1487756722.index
+1446274177.index
+3360436390.index
+4137487563.index
+985083388.index
+325400023.index
+135593009.index
