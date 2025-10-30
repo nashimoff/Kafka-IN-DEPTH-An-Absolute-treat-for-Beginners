@@ -1,0 +1,24 @@
+package basicCoding;
+
+import java.util.Properties;
+
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
+
+public class FirstKafkaConsumer {
+	
+	public static void main(String[] args) {
+		
+		String brokerHosts = "172.30.175.132:6091";
+		String topic = "javacode-topic";
+		String groupId = "firstJavaKafkaGroup";
+		
+		Properties einstein = new Properties();
+		
+		einstein.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,brokerHosts);
+		einstein.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,brokerHosts);
+	}
+	
+}		

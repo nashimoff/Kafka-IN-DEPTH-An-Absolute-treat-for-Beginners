@@ -1,0 +1,11 @@
+package basicCoding;
+
+public class KafkaProducer {
+	
+	public static void main(String[] args) {
+		
+		String Broker = "localhost:6091";
+		String topic = "javacode-topic"
+	}
+
+}

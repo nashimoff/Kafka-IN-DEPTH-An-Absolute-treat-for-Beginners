@@ -1,0 +1,58 @@
+package basicCoding;
+
+import java.time.Duration;
+import java.util.Collections;
+import java.util.Properties;
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
+
+
+public class FirstKafkaConsumer {
+	
+	public static void main(String[] args) {
+		
+		String brokerHosts = "172.30.175.132:6091,172.30.175.132:6092,172.30.175.132:6093";
+		String topic = "javacode-topic";
+		String groupId = "firstJavaKafkaGroup";
+		
+		Properties einstein = new Properties();
+		
+		einstein.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,brokerHosts);
+		einstein.put(ConsumerConfig.GROUP_ID_CONFIG,brokerHosts);
+		einstein.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
+		einstein.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
+		einstein.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,"earliest");
+		
+		//Create Kafka Consumer Instance
+		KafkaConsumer<String, String> consumer = new KafkaConsumer<>(einstein);
+		
+		//Subscribe to that topic
+		consumer.subscribe(Collections.singletonList(topic));
+		
+		//Code to read the 9 records
+		try {
+			
+			boolean checkMessages = true;
+			
+			while(checkMessages) {
+				ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(2000));
+				
+				for(ConsumerRecord<String, String> saveConsumedValue : records) {
+					System.out.printf("\nReceived Record (key = %s value = %s, partition = %d, offset = %d) %n",
+							saveConsumedValue.key(),
+							saveConsumedValue.value(),
+							saveConsumedValue.partition(),
+							saveConsumedValue.offset());
+				}
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			consumer.close();
+		}
+	}
+	
+}		
