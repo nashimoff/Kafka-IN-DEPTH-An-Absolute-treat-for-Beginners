@@ -1,7 +1,0 @@
-package basicCoding;
-
-public class KafkaProducer {
-	
-	public static void main(String[])
-
-}

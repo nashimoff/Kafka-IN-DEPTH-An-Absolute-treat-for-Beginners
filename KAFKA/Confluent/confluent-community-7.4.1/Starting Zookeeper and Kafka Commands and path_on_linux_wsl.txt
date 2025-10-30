@@ -1,0 +1,14 @@
+
+ZOOKEEPER START
+=========================================================================================================================================
+nurlan@HEAD-OUIA6:~/kafka/confluent/confluent-community-7.4.10/bin$ pwd
+/home/nurlan/kafka/confluent/confluent-community-7.4.10/bin
+nurlan@HEAD-OUIA6:~/kafka/confluent/confluent-community-7.4.10/bin$ ./zookeeper-server-start ../etc/kafka/zookeeper.properties
+
+
+KAFKA START
+=========================================================================================================================================
+nurlan@HEAD-OUIA6:~/kafka/confluent/confluent-community-7.4.10/bin$ pwd
+/home/nurlan/kafka/confluent/confluent-community-7.4.10/bin
+nurlan@HEAD-OUIA6:~/kafka/confluent/confluent-community-7.4.10/bin$ ./kafka-server-start ../etc/kafka/server.properties
+

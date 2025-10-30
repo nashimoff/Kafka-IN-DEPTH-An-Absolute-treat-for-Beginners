@@ -1,0 +1,12 @@
+
+E:\KAFKA\Confluent\confluent-community-7.4.1\bin\windows>zookeeper-server-start.bat  E:\KAFKA\Confluent\confluent-community-7.4.1\etc\kafka\zookeeper.properties
+
+E:\KAFKA\Confluent\confluent-community-7.4.1\bin\windows>kafka-server-start.bat E:\KAFKA\Confluent\confluent-community-7.4.1\etc\kafka\server.properties
+
+
+===============================================================================================================================================================
+executing three different kafka-server-start
+
+E:\KAFKA\Confluent\confluent-community-7.4.1\bin\windows>kafka-server-start.bat E:\KAFKA\Confluent\confluent-community-7.4.1\etc\kafka\server-0.properties
+E:\KAFKA\Confluent\confluent-community-7.4.1\bin\windows>kafka-server-start.bat E:\KAFKA\Confluent\confluent-community-7.4.1\etc\kafka\server-1.properties
+E:\KAFKA\Confluent\confluent-community-7.4.1\bin\windows>kafka-server-start.bat E:\KAFKA\Confluent\confluent-community-7.4.1\etc\kafka\server-2.properties

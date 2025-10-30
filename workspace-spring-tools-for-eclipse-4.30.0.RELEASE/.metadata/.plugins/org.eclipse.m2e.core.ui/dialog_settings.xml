@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="E:\COURSES\Kafka IN DEPTH An Absolute treat for Beginners\workspace-spring-tools-for-eclipse-4.30.0.RELEASE\artIDKafka"/>
 			<item value="E:\workspace-spring-tools-for-eclipse-4.30.0.RELEASE\poconmaven"/>
 			<item value="E:\workspace-spring-tools-for-eclipse-4.30.0.RELEASE\poconmaven\pom.xml"/>
 		</list>
@@ -52,7 +53,7 @@
 			<item value="kafkaPoc"/>
 		</list>
 		<list key="artifactId">
-			<item value="artIDKafka"/>
+			<item value="intarnarchy.artid.kafka"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -63,7 +64,6 @@
 			<item value="[name]"/>
 		</list>
 		<list key="version">
-			<item value="1.0.0"/>
 			<item value="0.0.1-SNAPSHOT"/>
 		</list>
 	</section>
